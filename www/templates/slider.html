@@ -1,0 +1,79 @@
+<style type="text/css">
+.bar.bar-dark .title {
+    margin-top:-10px;
+  }
+
+  .bar-header {
+    height: 50px !important;
+  }
+
+  .pane .slider {
+    margin-top:64px;
+    border-top: 1px solid #e8e8e8;
+    background-color:#eee;
+    height:50px;
+    padding-top:5px;
+  }
+
+  .weekday_badge {
+    width: 35px;
+    height: 35px;
+    color: #86030a;
+    padding: 6px 0px 0px 8px;
+    margin-left: 3%;
+    margin-top:5px;
+    float:left;
+  }
+
+  .weekday_badge.active {
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+  }
+
+  .header_date {
+    font-size:10px;
+    text-align:center;
+  }
+
+  [ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none !important;
+  }
+
+</style>
+
+ <ion-view view-title="Week view" style="margin-top:-20px;">
+    <ion-slide-box
+      on-slide-changed="slideChanged(index)"
+      show-pager="false">
+      <ion-slide ng-cloak>
+        <div class="weekday_badge"
+            ng-class="{active: d.selected}"
+            ng-repeat="d in dates[0]"
+            ng-click="selectDay(d)">{{d.weekday}}</div>
+      </ion-slide>
+      <ion-slide ng-cloak>
+        <div class="weekday_badge"
+            ng-class="{active: d.selected}"
+            ng-repeat="d in dates[1]"
+            ng-click="selectDay(d)">{{d.weekday}}</div>
+      </ion-slide>
+      <ion-slide ng-cloak>
+        <div class="weekday_badge"
+            ng-class="{active: d.selected}"
+            ng-repeat="d in dates[2]"
+            ng-click="selectDay(d)">{{d.weekday}}</div>
+      </ion-slide>
+      <ion-slide ng-cloak>
+        <div class="weekday_badge"
+            ng-class="{active: d.selected}"
+            ng-repeat="d in dates[3]"
+            ng-click="selectDay(d)">{{d.weekday}}</div>
+      </ion-slide>
+    </ion-slide-box>
+    <ion-content style="margin-top:60px; padding:10px;">
+      <div align="center" class="header_date">
+        {{date |date:'dd.MM.yyyy'}}
+      </div>
+    </ion-content>
+</ion-view>
